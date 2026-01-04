@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Transaction</title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='style.css) }}">
 </head>
 <body>
+     <h2>Transaction History</h2>
+     <tabel border=" 1 " align=" center">
+         <tr>
+             <th>
+                 Type
+             </th>
+             <th>Amount</th>
+             <th>Date</th>
+         </tr>
+             {% for t in transaction %}
+         <tr>
+                 <td>{{t[0]}}</td>
+                 <td> ₹ {{ t[1] }}</td>
+                 <td>{[t[2]}}</td>
 
+
+         </tr>
+         {% endfor %}
+         <br>
+         <a href="/dashboard"> <button>Back to the Dashboard</button></a>
+     </tabel>
 </body>
 </html>
