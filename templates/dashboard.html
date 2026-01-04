@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+
+</head>
+<body>
+    <h2>ATM DASHBOARD</h2>
+    <P>Welcome, Account: <b>{{ account_no }}</b></P>
+<div>
+    <a href="/balance"><button>Check Balance</button></a><br><br>
+    <a href="/deposit"><button>Deposite</button></a><br><br>
+    <a href="/withdraw"><button>Withdraw</button></a><br>br
+    <a href="/transaction"> <button>Transactions History</button></a><br><br>
+    <a href="/logout"> <button style="backgound:red;">Logout</button></a>
+</div>
+</body>
+</html>
