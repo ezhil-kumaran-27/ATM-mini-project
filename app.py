@@ -125,6 +125,21 @@ def withdraw():
         connection.close()
     return render_template("withdraw.html", error=error)
 
+@app.route("/transcation",methods=['GET', 'POST'])
+def transcation():
+    if "account_no" not in session:
+        return redirect("/login")
+
+    connection = get_db_connection()
+    cursor = connection.cursor()
+    cursor.execute(
+        "SELECT type,amount, data FROM transaction WHERE account_no = %s ORDER BY date DESC",
+        (session["account_no"],)
+    )
+    transcation = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    return render_template("transcation.html", transcation=transcation)
 
 @app.route("/logout")
 def logout():
